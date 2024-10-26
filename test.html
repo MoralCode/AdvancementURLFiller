@@ -49,10 +49,11 @@
 		
 		function updateURL() {
 			let ddvalue = dropdown.value
+			let givingidval = extractGivingID(givingid.value)
 			if (ddvalue == "default"){
-				ddvalue == ""
+				ddvalue = ""
 			}
-			const url = buildURL(ddvalue, givingid.value);
+			const url = buildURL(ddvalue, givingidval);
 			document.getElementById("url").textContent = `Generated URL: ${url}`;
 		}
 		dropdown.onchange = validateForm
