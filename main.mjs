@@ -31,13 +31,18 @@ export function nameToURL(orgName) {
 }
 
 // Build URL based on selected value
-export function buildURL(selectedValue) {
-	const orgName = nameToURL(selectedValue)
-	return `https://give.rit.edu/campaigns/52069/donations/new?designation=${orgName}`;
-}
-
-function updateURL(event) {
-	const selectedValue = event.target.value;
-	const url = buildURL(selectedValue);
-	document.getElementById("url").textContent = `Generated URL: ${url}`;
+export function buildURL(orgName="", givingID="", baseURL= "https://give.rit.edu/campaigns/52069/donations/new", defaultMessage = "Please enter a value in one or both of the inputs above") {
+	const data = {};
+	if ( orgName != ""){
+		data.designation = nameToURL(orgName);
+	}
+	if ( givingID != ""){
+		data.a = givingID;
+	}
+	const searchParams = new URLSearchParams(data);
+	const res = `${baseURL}?${searchParams}`;
+	if (res == baseURL) {
+		return defaultMessage;
+	}
+	return res
 }

@@ -16,7 +16,23 @@
 	<p id="url"></p>
 
 	<script type="module">
-		import { fetchData } from './main.mjs';
+		import { fetchData, buildURL } from './main.mjs';
+		const givingid = document.getElementById("givingID")
+		const dropdown = document.getElementById("dropdown")
+
+
+		function updateURL() {
+			let ddvalue = dropdown.value
+			if (ddvalue == "default"){
+				ddvalue == ""
+			}
+			const url = buildURL(ddvalue, givingid.value);
+			document.getElementById("url").textContent = `Generated URL: ${url}`;
+		}
+		dropdown.onchange = updateURL
+		givingid.onchange = updateURL
+
+
 		// Load data on page load
 			window.onload = fetchData().then((result) => {
 				// console.log(data);
@@ -29,6 +45,7 @@
 					dropdown.appendChild(option);
 				});
 			});
+		});
 	</script>
 </body>
 
