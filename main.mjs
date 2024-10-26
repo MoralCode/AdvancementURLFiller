@@ -48,18 +48,29 @@ export function buildURL(orgName="", givingID="", baseURL= "https://give.rit.edu
 }
 
 export function extractGivingID(input) {
+
+	if (input === undefined){
+		return ""
+	}
+
+	if (input === null){
+		return ""
+	}
+
 	// if givingidval is numerical
 	let inputval = input.valueOf()
 	inputval = inputval.replaceAll(" ", "")
+
+	if (inputval == ""){
+		return ""
+	}
 	let num = Number.parseInt(inputval)
 
 	if (!isNaN(num)) {
 		return inputval
 	}	
 	
-	if (inputval == ""){
-		return ""
-	}
+	
 	// attempt to parse as a url
 	try {
 		const url = new URL(inputval);

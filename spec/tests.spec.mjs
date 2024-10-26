@@ -30,4 +30,16 @@ describe("extractGivingID function", () => {
 	it("should  strip spaces", async () => {
 		expect(extractGivingID("12 34")).toEqual("1234")
 	})
+
+	it("should handle blanks", async () => {
+		expect(extractGivingID("")).toEqual("")
+	})
+
+	it("should handle undefined", async () => {
+		expect(extractGivingID(undefined)).toEqual("")
+	})
+
+	it("should handle null", async () => {
+		expect(extractGivingID(null)).toEqual("")
+	})
 });
