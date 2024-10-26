@@ -15,3 +15,13 @@ describe("buildURL function", () => {
 
 	});
 });
+
+describe("extractGivingID function", () => {
+	it("should be able to extract a number", async () => {
+		expect(extractGivingID("12345")).toBe("12345")
+	})
+
+	it("should be able to extract the a parameter from a URL", async () => {
+        expect(extractGivingID("https://give.rit.edu/campaigns/52069/donations/new?a=12345")).toBe("12345")
+    })
+});

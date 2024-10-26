@@ -46,3 +46,28 @@ export function buildURL(orgName="", givingID="", baseURL= "https://give.rit.edu
 	}
 	return res
 }
+
+export function extractGivingID(input) {
+	// if givingidval is numerical
+	const num = Number.parseInt(input)
+
+	if (!isNaN(num)) {
+		return input
+	} else {
+		
+		// attempt to parse as a url
+		try {
+			const url = new URL(input);
+			
+			// extract the a parameter
+			let aparam = url.searchParams.get('a');
+			let aparamID = extractGivingID(aparam)
+			if (aparamID)
+				return aparamID
+		} catch (error) {
+			// Invalid URL, do nothing
+			console.error("Error parsing attribution value: ", error);
+			
+		}
+	}
+}
