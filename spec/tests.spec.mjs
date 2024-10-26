@@ -22,4 +22,12 @@ describe("extractGivingID function", () => {
 	it("should be able to extract the a parameter from a URL", async () => {
         expect(extractGivingID("https://give.rit.edu/campaigns/52069/donations/new?a=12345")).toBe("12345")
     })
+
+	it("should fail on simple strings", async () => {
+		expect(extractGivingID("abcd")).toBeUndefined()
+	})
+
+	it("should  strip spaces", async () => {
+		expect(extractGivingID("12 34")).toEqual("1234")
+	})
 });
