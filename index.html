@@ -8,12 +8,19 @@
 </head>
 
 <body>
-	<h2>Select a Value</h2>
+	<h2>RIT ROAR Day Ambassador Link Creator</h2>
+
+	<p>Build your personalized links for RIT ROAR day below. Share these link to direct donors to the selected organization or attribute gifts to your advocacy by becoming an advocate at <a href="https://give.rit.edu/roar-day-2024">https://give.rit.edu/roar-day-2024</a>!</p>
+
+
 	<form id="theform">
+		<label>Pre-Fill organization:
 		<select id="dropdown">
 			<option value="default">Let the donor pick the organization</option>
 		</select>
-		<input type="text" id="givingID" />
+		</label><br>
+		<label>Attribution ID (optional): <input type="text" id="givingID", placeholder="Enter your attribution ID (or a link with it) to track donations credited to you." /></label> <br><br>
+
 		<input type="submit" value="Generate">
 	</form>
 
