@@ -57,7 +57,7 @@
 		function buildURL(event) {
 			const selectedValue = event.target.value;
 			const orgName = nameToURL(selectedValue)
-			const url = `https://example.com/${encodeURIComponent(selectedValue)}`;
+			const url = `https://give.rit.edu/campaigns/52069/donations/new?designation=${encodeURIComponent(orgName)}`;
 			document.getElementById("url").textContent = `Generated URL: ${url}`;
 		}
 
