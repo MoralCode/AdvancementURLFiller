@@ -42,4 +42,8 @@ describe("extractGivingID function", () => {
 	it("should handle null", async () => {
 		expect(extractGivingID(null)).toEqual("")
 	})
+
+	it("edge case", async () => {
+		expect(extractGivingID("12345h")).toEqual("12345")
+	})
 });
