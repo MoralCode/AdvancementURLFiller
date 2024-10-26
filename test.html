@@ -17,13 +17,15 @@
 		<input type="submit" value="Generate">
 	</form>
 
-	<p id="url"></p>
+	<div id="result"><label id="message"></label><a id="url"></a></div>
 
 	<script type="module">
 		import { fetchData, buildURL, extractGivingID } from './main.mjs';
 		const givingid = document.getElementById("givingID")
 		const dropdown = document.getElementById("dropdown")
 		const theform = document.getElementById("theform")
+		const result = document.getElementById("url")
+		const resultLabel = document.getElementById("message")
 
 
 		function validateForm(e) {
@@ -54,7 +56,11 @@
 				ddvalue = ""
 			}
 			const url = buildURL(ddvalue, givingidval);
-			document.getElementById("url").textContent = `Generated URL: ${url}`;
+	
+			result.href = url
+			result.textContent = url
+			resultLabel.textContent = `Generated URL: `;
+	
 		}
 		dropdown.onchange = validateForm
 		givingid.onchange = validateForm
