@@ -19,7 +19,7 @@ export async function fetchData(cellref = "'Direct Giving Links'!A2:A500", key =
 
 export function nameToURL(orgName) {
 	let tempName = orgName.valueOf()
-	const charsToRemove = " .()-@',&";
+	const charsToRemove = " .()-@',&:";
 	for ( let char of charsToRemove) {
 		tempName = tempName.replaceAll(char, '')
 	}
