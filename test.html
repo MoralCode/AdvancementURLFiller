@@ -44,9 +44,19 @@
 			}
 		}
 
+		function nameToURL(orgName) {
+			let tempName = orgName.valueOf()
+			const charsToRemove = " .()-@',&";
+			for ( let char of charsToRemove) {
+				tempName = tempName.replaceAll(char, '')
+			}
+			return tempName
+		}
+
 		// Build URL based on selected value
 		function buildURL(event) {
 			const selectedValue = event.target.value;
+			const orgName = nameToURL(selectedValue)
 			const url = `https://example.com/${encodeURIComponent(selectedValue)}`;
 			document.getElementById("url").textContent = `Generated URL: ${url}`;
 		}
