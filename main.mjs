@@ -11,6 +11,9 @@ export async function fetchData(cellref = "'Direct Giving Links'!A2:A500", key =
 	var googleSheetURL = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${cellref}?key=${key}`;
 	try {
 		const response = await fetch(googleSheetURL);
+		if (response.status != 200) {
+			throw new Error(`HTTP error! status: ${response.status}, ${response.statusText}, ${await response.text()}`);
+        }
 		const data = await response.json();
 		return data.values.slice(1)
 	} catch (error) {
