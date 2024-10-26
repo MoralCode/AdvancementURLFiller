@@ -9,10 +9,13 @@
 
 <body>
 	<h2>Select a Value</h2>
-	<select id="dropdown" onchange="buildURL(event)">
-		<option value="">--Select--</option>
-	</select>
-	<input type="number" id="givingID" />
+	<form id="theform">
+		<select id="dropdown">
+			<option value="default">Let the donor pick the organization</option>
+		</select>
+		<input type="text" id="givingID" />
+		<input type="submit" value="Generate">
+	</form>
 
 	<p id="url"></p>
 
@@ -20,8 +23,26 @@
 		import { fetchData, buildURL, extractGivingID } from './main.mjs';
 		const givingid = document.getElementById("givingID")
 		const dropdown = document.getElementById("dropdown")
+		const theform = document.getElementById("theform")
 
 
+		function validateForm(e) {
+			const valid = theform.reportValidity()
+			givingid.setCustomValidity("")
+			
+		    if (!extractGivingID(givingid.value))
+				givingid.setCustomValidity("Invalid value. Either leave this blank, enter your attribution number, or enter a url attributed to you")
+			    return false
+
+
+			if (!valid)
+				e.preventDefault()
+			return true
+
+		}
+		theform.onsubmit = validateForm
+
+		
 		function updateURL() {
 			let ddvalue = dropdown.value
 			if (ddvalue == "default"){
