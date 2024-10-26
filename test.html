@@ -27,20 +27,24 @@
 
 
 		function validateForm(e) {
-			const valid = theform.reportValidity()
+			// assume valid
 			givingid.setCustomValidity("")
-			
-		    if (!extractGivingID(givingid.value))
+
+			let extracted = extractGivingID(givingid.value)
+		    if (!extracted && extracted !== "" ) {
 				givingid.setCustomValidity("Invalid value. Either leave this blank, enter your attribution number, or enter a url attributed to you")
-			    return false
+			}
 
-
-			if (!valid)
-				e.preventDefault()
-			return true
-
+			return theform.reportValidity()
 		}
-		theform.onsubmit = validateForm
+		theform.onsubmit = (e) => {
+			let valid = validateForm(e)
+			if (valid) {
+                updateURL()
+            }
+			// prevent the page from refreshing
+			e.preventDefault()
+		}
 
 		
 		function updateURL() {
@@ -51,8 +55,8 @@
 			const url = buildURL(ddvalue, givingid.value);
 			document.getElementById("url").textContent = `Generated URL: ${url}`;
 		}
-		dropdown.onchange = updateURL
-		givingid.onchange = updateURL
+		dropdown.onchange = validateForm
+		givingid.onchange = validateForm
 
 
 		// Load data on page load
