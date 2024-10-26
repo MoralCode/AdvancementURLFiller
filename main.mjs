@@ -34,15 +34,3 @@ export function buildURL(event) {
 	document.getElementById("url").textContent = `Generated URL: ${url}`;
 }
 
-// Load data on page load
-window.onload = fetchData().then((result) => {
-	// console.log(data);
-	// Populate the dropdown
-	const dropdown = document.getElementById("dropdown");
-	result.forEach(row => {
-		const option = document.createElement("option");
-		option.value = row[0];  // Assume the value you want is in the first column
-		option.textContent = row[0];
-		dropdown.appendChild(option);
-	});
-});
