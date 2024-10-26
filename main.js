@@ -11,15 +11,7 @@ async function fetchData(cellref = "'Direct Giving Links'!A2:A500") {
 	try {
 		const response = await fetch(googleSheetURL);
 		const data = await response.json();
-		console.log(data);
-		// Populate the dropdown
-		const dropdown = document.getElementById("dropdown");
-		data.values.slice(1).forEach(row => {
-			const option = document.createElement("option");
-			option.value = row[0];  // Assume the value you want is in the first column
-			option.textContent = row[0];
-			dropdown.appendChild(option);
-		});
+		return data.values.slice(1)
 	} catch (error) {
 		console.error('Error fetching data:', error);
 	}
@@ -43,4 +35,14 @@ function buildURL(event) {
 }
 
 // Load data on page load
-window.onload = fetchData;
+window.onload = fetchData().then((result) => {
+	// console.log(data);
+	// Populate the dropdown
+	const dropdown = document.getElementById("dropdown");
+	result.forEach(row => {
+		const option = document.createElement("option");
+		option.value = row[0];  // Assume the value you want is in the first column
+		option.textContent = row[0];
+		dropdown.appendChild(option);
+	});
+});
