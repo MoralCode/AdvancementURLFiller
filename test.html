@@ -10,7 +10,7 @@
 
 <body>
 	<h2>Select a Value</h2>
-	<select id="dropdown" onchange="buildURL()">
+	<select id="dropdown" onchange="buildURL(event)">
 		<option value="">--Select--</option>
 	</select>
 
@@ -45,8 +45,8 @@
 		}
 
 		// Build URL based on selected value
-		function buildURL() {
-			const selectedValue = document.getElementById("dropdown").value;
+		function buildURL(event) {
+			const selectedValue = event.target.value;
 			const url = `https://example.com/${encodeURIComponent(selectedValue)}`;
 			document.getElementById("url").textContent = `Generated URL: ${url}`;
 		}
