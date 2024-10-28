@@ -21,10 +21,26 @@ header {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
+	flex-wrap: wrap;
 }
 
+/* Default styling for the logo */
 .logo {
 	height: 50px;
+}
+
+/* Wrap title under image on smaller screens */
+@media (max-width: 600px) {
+	header {
+		flex-direction: column;
+		text-align: center;
+		/* Center-align text on small screens */
+	}
+
+	.logo {
+		margin-bottom: 0.5rem;
+		/* Add some space between image and title */
+	}
 }
 
 h1 {
