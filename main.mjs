@@ -67,7 +67,7 @@ export function extractGivingID(input) {
 	let num = Number.parseInt(inputval)
 
 	if (!isNaN(num)) {
-		return inputval
+		return num.toString()
 	}	
 	
 	
@@ -82,7 +82,7 @@ export function extractGivingID(input) {
 			return aparamID
 	} catch (error) {
 		// Invalid URL, do nothing
-		console.error("Error parsing attribution value: ", error);
+		// console.error("Error parsing attribution value: ", error);
 		return 
 	}
 }
