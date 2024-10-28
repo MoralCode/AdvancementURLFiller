@@ -110,6 +110,11 @@
 				width: '100%',
 				minimumResultsForSearch: 0  // Always shows search bar
 			});
+
+			// Automatically focus on the search box when dropdown opens
+			$('#dropdown').on('select2:open', function () {
+				document.querySelector('.select2-search__field').focus();
+			});
 		});
 	</script>
 </body>
