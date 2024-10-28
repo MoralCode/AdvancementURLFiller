@@ -4,34 +4,43 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/css/style.css">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-
 	<title>RIT ROAR Day Ambassador Link Creator</title>
 </head>
 
 <body>
-	<h1>RIT ROAR Day Ambassador Link Creator</h1>
+	<div class="container">
+		<header>
+			<img src="assets/images/ROAR Day_cmyk_hor_k.jpg" alt="RIT Logo" class="logo">
+			<h1>RIT ROAR Day Ambassador Link Creator</h1>
+		</header>
 
-	<p>Build your personalized links for RIT ROAR day below. Share these link to direct donors to the selected organization.</p>
-	<p> You can also get a URL to track the gifts from your efforts by becoming an advocate at <a href="https://give.rit.edu/roar-day-2024">https://give.rit.edu/roar-day-2024</a>!</p>
+		<p>Build your personalized links for RIT ROAR day below. Share these links to direct donors to the selected organization.</p>
+		<p> You can also get a URL to track the gifts from your efforts by becoming an advocate at
+			<a href="https://give.rit.edu/roar-day-2024" target="_blank">https://give.rit.edu/roar-day-2024</a>!
+		</p>
 
+		<form id="theform">
+			<label>Select your preferred designation:</label>
+			<select id="dropdown">
+				<option value="default">Let the donor choose</option>
+			</select><br>
 
-	<form id="theform">
-		<label>Select your preferred designation:
-		<select id="dropdown">
-			<option value="default">Let the donor choose</option>
-		</select>
-		</label><br>
-		<label>Ambassador/Advocate ID (optional):<br>
-		<br> <input type="text" id="givingID", placeholder="Enter your attribution ID (or a link with it) to track donations credited to you." /></label> <br><br>
+			<label for="givingID">Ambassador/Advocate ID (optional):</label>
+			<input type="text" id="givingID" placeholder="Enter your attribution ID"><br><br>
 
-		<input type="submit" value="Generate">
-	</form>
+			<input type="submit" value="Generate">
+		</form>
 
-	<div id="result"><label id="message"></label><a id="url"></a></div>
-
+		<div id="result">
+			<label id="message"></label>
+			<a id="url"></a>
+		</div>
+	</div>
+	
 	<script type="module">
 		import { fetchData, buildURL, extractGivingID } from './main.mjs';
 		const givingid = document.getElementById("givingID")
