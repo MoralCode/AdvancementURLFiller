@@ -94,6 +94,16 @@
 			e.preventDefault()
 		}
 
+
+		function setURLResult(url) {
+			result.href = url
+            result.textContent = url
+			if (url !== "") {
+				resultLabel.textContent = `Generated URL: `;
+			} else {
+				resultLabel.textContent = ``;
+			}
+		}
 		
 		function updateURL() {
 			let ddvalue = dropdown.value
@@ -107,13 +117,19 @@
 			}
 			const url = buildURL(ddvalue, givingidval);
 	
-			result.href = url
-			result.textContent = url
-			resultLabel.textContent = `Generated URL: `;
+			setURLResult(url)
 	
 		}
-		dropdown.onchange = validateForm
-		givingid.onchange = validateForm
+		dropdown.onchange = (e) => {
+			setURLResult("")
+			validateForm(e);
+		}
+
+		givingid.onchange = (e) => {
+			setURLResult("")
+			validateForm(e);
+		}
+
 
 
 		// Load data on page load
