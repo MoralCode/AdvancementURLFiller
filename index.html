@@ -149,10 +149,8 @@
 				placeholder: "Search and select an organization",
 				width: '100%',
 				minimumResultsForSearch: 0  // Always shows search bar
-			});
-
-			// Automatically focus on the search box when dropdown opens
-			$('#dropdown').on('select2:open', function () {
+			}).on('select2:open', function () {
+				// Automatically focus on the search box when dropdown opens
 				document.querySelector('.select2-search__field').focus();
 			});
 		});
