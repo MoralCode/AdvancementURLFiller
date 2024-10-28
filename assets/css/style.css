@@ -91,3 +91,55 @@ a:hover {
 	text-align: center;
 	margin-top: 2rem;
 }
+
+/* Style the select to match Select2's default look before it initializes */
+#dropdown, #dropdown2 {
+	width: 100%;
+	height: 38px;
+	/* Matches Select2 height */
+	padding: 5px 12px;
+	/* Matches Select2 padding */
+	font-size: 16px;
+	/* line-height: 1.5; */
+	line-height: 28px;
+	color: #444;
+	background-color: white;
+	border: 1px solid #ccc;
+	/* Matches Select2 border */
+	border-radius: 4px;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	/* Remove default styling */
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.select2-selection__rendered {
+	line-height: 2 !important;
+}
+
+
+.select2-container--default .select2-selection--single
+{
+    margin-bottom: 1em !important;
+}
+
+.select2-container {
+	margin: auto;
+}
+
+.select2-container .select2-selection--single {
+	height: auto !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+	height: 34px !important;
+}
+
+#givingID {
+	width: 100%;
+	box-sizing: border-box;
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+}
