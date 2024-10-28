@@ -84,3 +84,10 @@ a {
 a:hover {
 	text-decoration: underline;
 }
+
+.credit {
+	font-size: 0.875rem;
+	color: #777;
+	text-align: center;
+	margin-top: 2rem;
+}
