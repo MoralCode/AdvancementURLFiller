@@ -110,7 +110,7 @@
 			let givingidval = extractGivingID(givingid.value)
 
 			// The number of URLs generated for each designation is a useful success metric, but we should only track the organization, not the final generated URL because those might include unique identifiers, defeating the purpose of all the privacy protections in place.
-			_paq.push(['trackEvent', 'URLs', 'Generated', ddvalue, 1]);
+			_paq.push(['trackEvent', 'URLs', 'Generated', ddvalue]);
 
 			if (ddvalue == "default"){
 				ddvalue = ""
