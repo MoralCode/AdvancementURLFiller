@@ -15,7 +15,7 @@ export async function fetchData(cellref = "'Direct Giving Links'!A2:A", key = "A
 			throw new Error(`HTTP error! status: ${response.status}, ${response.statusText}, ${await response.text()}`);
         }
 		const data = await response.json();
-		return data.values.slice(1)
+		return data.values
 	} catch (error) {
 		console.error('Error fetching data:', error);
 	}
