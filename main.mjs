@@ -6,7 +6,7 @@
 
 
 // Fetch data from Google Sheets
-export async function fetchData(cellref = "'Direct Giving Links'!A2:A500", key = "AIzaSyAJOC5ss6cLfe9i-X4J2u-qzE_ZP8n3Ubk") {
+export async function fetchData(cellref = "'Direct Giving Links'!A2:A", key = "AIzaSyAJOC5ss6cLfe9i-X4J2u-qzE_ZP8n3Ubk") {
 	var sheetID = "1KVGABCg3MHEgayx1LbxG86DWg28edDCvCDEe7LHddgI"
 	var googleSheetURL = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${cellref}?key=${key}`;
 	try {
