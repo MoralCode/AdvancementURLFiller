@@ -7,7 +7,7 @@ describe("buildURL function", () => {
 	it("should be able to generate identical urls to the original sheet", async () => {
 		const inputs = await fetchData(undefined,  process.env.TEST_KEY).then(r => r.map(input => `${buildURL(input[0])}&`))
 
-		const outputs = await fetchData("'Direct Giving Links'!B2:B500",process.env.TEST_KEY).then(r => r.map(row => row[0]))
+		const outputs = await fetchData("'Direct Giving Links'!B2:B",process.env.TEST_KEY).then(r => r.map(row => row[0]))
 						
 		expect(inputs).toEqual(outputs)
 
