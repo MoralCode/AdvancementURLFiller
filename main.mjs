@@ -30,6 +30,10 @@ export function nameToURL(orgName) {
 	return tempName
 }
 
+export function buildBaseURL(domain, campaignId) {
+	return "https://" + domain + "/campaigns/" + campaignId + "/donations/new"
+}
+
 // Build URL based on selected value
 export function buildURL(orgName="", givingID="", baseURL= "https://give.rit.edu/campaigns/52069/donations/new", defaultMessage = "Please enter a value in one or both of the inputs above") {
 	const data = {};

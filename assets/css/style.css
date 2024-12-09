@@ -193,3 +193,7 @@ a:hover {
 	position: relative;
 	vertical-align: middle;
 }
+
+#infobox {
+	display: none;
+}
